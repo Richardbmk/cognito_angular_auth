@@ -1,0 +1,51 @@
+<div class="container" *ngIf="user">
+  <div class="row">
+    <div class="auth-box">
+      <!-- sign up -->
+      <div *ngIf="!isConfirm">
+        <div class="header">
+          <h2>Register</h2>
+          <h4>Register Your account below information</h4>
+        </div>
+        <div class="form">
+          <input
+            type="text"
+            name="givenName"
+            [(ngModel)]="user.givenName"
+            placeholder="First Name"
+          />
+          <input
+            type="text"
+            name="familyName"
+            [(ngModel)]="user.familyName"
+            placeholder="First Name"
+          />
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="user.email"
+            placeholder="Email address"
+            autocomplete="off"
+          />
+          <input
+            [type]="user.showPassword ? 'text' : 'password'"
+            name="password"
+            [(ngModel)]="user.password"
+            placeholder="Password"
+          />
+          <div>
+            <input
+              type="checkbox"
+              [checked]="user.showPassword"
+              (change)="user.showPassword = !user.showPassword"
+            />
+            show Password
+          </div>
+          <p>Already a member? <a href="/sign-in">Sign in</a></p>
+          <button (click)="signUpWithCognito()">REGISTER</button>
+        </div>
+      </div>
+      <!-- confirm sign up -->
+    </div>
+  </div>
+</div>
