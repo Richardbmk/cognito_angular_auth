@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit {
           this.displayAlert(error.message);
         });
     } else {
-      this.displayAlert('Missing user information');
+      this.displayAlert('Missing email or password');
     }
   }
 

@@ -1,5 +1,5 @@
 <div class="container" *ngIf="user">
-  <div class="row">
+  <div class="row w-100 vh-100 justify-content-center align-items-center">
     <div class="auth-box">
       <!-- sign up -->
       <div *ngIf="!isConfirm">
@@ -33,7 +33,7 @@
             [(ngModel)]="user.password"
             placeholder="Password"
           />
-          <div>
+          <div style="font-size: 12px; margin: 8px 0">
             <input
               type="checkbox"
               [checked]="user.showPassword"
@@ -46,6 +46,32 @@
         </div>
       </div>
       <!-- confirm sign up -->
+
+      <div *ngIf="isConfirm">
+        <div class="header">
+          <h2>Enter Code</h2>
+          <h4 style="color: green">
+            A verification Code Sent to {{ user.email }}
+          </h4>
+        </div>
+
+        <div class="form">
+          <input
+            type="text"
+            name="verificationCode"
+            placeholder="Enter verification code"
+            [(ngModel)]="user.code"
+          />
+          <button (click)="confirmSignUp()">CONFIRM</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<app-message-modal
+  *ngIf="showAlert"
+  (modalClose)="showAlert = false"
+  [message]="alertMessage"
+></app-message-modal>

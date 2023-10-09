@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-message-modal',
@@ -7,7 +7,7 @@ import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 })
 export class MessageModalComponent implements OnInit {
   @Input() message: string = '';
-  @Input() modalClose = new EventEmitter<boolean>();
+  @Output() modalClose = new EventEmitter<boolean>();
   constructor() {}
 
   ngOnInit(): void {}
