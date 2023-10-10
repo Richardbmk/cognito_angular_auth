@@ -8,6 +8,7 @@ import { CognitoService } from 'src/app/services/cognito.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  title = 'Tour of Heroes';
   constructor(private router: Router, private cognitoService: CognitoService) {}
 
   ngOnInit(): void {
